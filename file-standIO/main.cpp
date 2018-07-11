@@ -66,6 +66,39 @@ int seek_main()
 	return 0;
 }
 
+void testPrintfFormat(void)
+{
+	int n = 1234;
+	char str[10] = "Hello";
+
+	float fn = 12.34;
+
+	putchar(10);
+
+	printf("%10s\n", str);
+	printf("%-10s\n", str);
+	printf("%10d\n", n);
+	printf("%-10d\n", n);
+	printf("%010d\n", n);
+	printf("%10.4f\n", fn);
+}
+
+void testScanfFormat(void)
+{
+	char s[256];
+	int n;
+	float f;
+	char c;
+
+	scanf("Hello, %d, %g, %c, %[^\n]", &n, &f, &c, s);
+
+	putchar(10);
+	printf("%d\n", n);
+	printf("%g\n", f);
+	printf("%c\n", c);
+	printf("%s\n", s);
+}
+
 int main()
 {
 	/*FILE *pfile = fopen("main.cpp", "r");
@@ -90,6 +123,8 @@ int main()
 
 	printf("seek main start here!\n");
 	seek_main();
+	testPrintfFormat();
+	testScanfFormat();
 
 	return 0;
 }
